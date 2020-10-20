@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		showHeader="false"
+		contentWidth="25rem"
+		contentHeight="auto"
+		placement="Bottom">
+            <List id="list" >
+					<StandardListItem
+					title="{mainModel>/name}"
+					icon="sap-icon://customer"
+                    infoState="Information"
+                    highlight="Information"
+					iconDensityAware="true"
+					iconInset="true" />
+					<StandardListItem
+					title="{mainModel>/user_id}"
+					icon="sap-icon://email"
+                    infoState="Warning"
+                    highlight="Warning"
+					iconDensityAware="true"
+					iconInset="true" />
+					<StandardListItem
+					title="Log Out"
+					type="Active"
+					icon="sap-icon://log"
+                    infoState="Error"
+                    highlight="Error"
+					press="onLogoutPress"
+					iconDensityAware="true"
+					iconInset="true" />
+			</List>
+        </Popover>
+</core:FragmentDefinition>

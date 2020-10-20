@@ -1,0 +1,20 @@
+<mvc:View controllerName="aws.LightningStorage.controller.Welcome" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:upload="sap.m.upload" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+	<Shell id="shell" appWidthLimited="false">
+		<App id="app">
+			<pages>
+				<Page id="welcomePage" title="{i18n>title}" showHeader="false" >
+					<content>
+						<VBox alignItems="Center">
+							<GenericTile frameType="TwoByOne" press="handleCognito" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Welcome to Lightning Storage" subheader="a Cloud Storage app">
+								<TileContent footer="Sign In or Sign Up">
+									<ImageContent src="img/favicon.png"/>
+								</TileContent>
+							</GenericTile>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

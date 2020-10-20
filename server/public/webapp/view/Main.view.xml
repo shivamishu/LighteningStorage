@@ -1,0 +1,51 @@
+<mvc:View controllerName="aws.LightningStorage.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:upload="sap.m.upload" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" 	xmlns:tnt="sap.tnt">
+	<tnt:ToolHeader>
+	<Label text="ADMIN" visible="{= ${mainModel>/user_mode} === 'ADMIN' ? true: false}"/>
+	<ToolbarSpacer />
+		<Label text="{mainModel>/name} ({mainModel>/user_id})" class="sapUiTinyMarginBegin"/>
+		
+		<Avatar src="" displaySize="XS" press="onAvatarPressed"/>
+	</tnt:ToolHeader>
+				<Page id="page" title="{i18n>title}" showHeader="false">
+					<content>
+						<VBox>
+							<VBox alignItems="Center">
+								<HBox justifyContent="SpaceBetween" class="sapUiSmallMarginTop">
+									<Image src="img/favicon.png" height="auto" width="3rem" tooltip="{i18n>appTitle}" class="sapUiTinyMarginTop"/>
+									<Title text="{i18n>title}" level="H1" titleStyle="H1" class="sapUiTinyMarginBegin"/>
+								</HBox>
+								<u:FileUploader id="fileUploader" class="sapUiSmallMarginTop" name="fileToUpload" uploadUrl="upload/"
+									tooltip="Upload your file to Lightning Storage on Cloud" uploadComplete="handleUploadComplete" change="onFileChange"/>
+								<FlexBox direction="{= ${device>/system/desktop} ? 'Row' : 'Column' }" alignItems="Start" busy="{mainModel>/busyUpload}">
+									<Input value="{mainModel>/description}" placeholder="Enter file description" width="20rem"/>
+									<Button text="Upload File" press="handleUploadPress" type="Emphasized" class="sapUiSmallMarginBegin"/>
+								</FlexBox>
+							</VBox>
+							<UploadCollection id="UploadCollection" maximumFileSize="10" multiple="false" change="onAttachmentChange" fileDeleted="onFileDeleted"
+								fileSizeExceed="onFileSizeExceed" items="{ path: 'mainModel>/items', templateShareable: false }" showSeparators="All" uploadEnabled="false"
+								uploadButtonInvisible="true" mode="None" class="sapUiSmallMarginBeginEnd" busy="{mainModel>/busyDelete}" noDataDescription="Upload files using Browse and Upload Button" noDataText="No files uploaded yet">
+								<toolbar>
+									<OverflowToolbar>
+										<!-- <SearchField width="20rem" search="onSearch" placeholder="Search files by name"/> -->
+									</OverflowToolbar>
+								</toolbar>
+								<items>
+									<UploadCollectionItem documentId="{mainModel>filename}" fileName="{path: 'mainModel>filename', formatter: '.formatFilename'}"
+										mimeType="{mainModel>mimetype}" url="{mainModel>file_url}" enableEdit="false" enableDelete="true" visibleDelete="true" visibleEdit="false">
+										<attributes>
+											<ObjectAttribute title="Uploaded By" text="{mainModel>fname} {mainModel>lname}" active="false"/>
+											<ObjectAttribute title="Uploaded at" text="{path: 'mainModel>utime', formatter: '.formatTime'}" active="false"/>
+											<ObjectAttribute title="Changed at" text="{path: 'mainModel>ctime', formatter: '.formatTime'}" active="false"/>
+											<ObjectAttribute title="Size" text="{path: 'mainModel>size', formatter: '.formatSize'}" active="false"/>
+										</attributes>
+										<statuses>
+											<ObjectStatus title="Description" text="{mainModel>description}" state="None" active="false"/>
+										</statuses>
+									</UploadCollectionItem>
+								</items>
+							</UploadCollection>
+						</VBox>
+					</content>
+				</Page>
+</mvc:View>
