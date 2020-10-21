@@ -38,15 +38,16 @@ sap.ui.define(
               this._oView
                 .getModel("mainModel")
                 .setProperty("/user_id", data.user_id);
+              this._oView.getModel("mainModel").setProperty("/mode", data.mode);
               this._oView.getModel("mainModel").setProperty("/busy", false);
             }.bind(this),
             error: function (error) {
               MessageToast.show("Error occured. Sign in again");
               this._oView.getModel("mainModel").setProperty("/busy", false);
               console.log("Error fetching files");
-              // var sUrl =
-              //   "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000";
-              // sap.m.URLHelper.redirect(sUrl, false);
+              var sUrl =
+                "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000";
+              sap.m.URLHelper.redirect(sUrl, false);
             }.bind(this),
           });
         } else {
@@ -83,19 +84,20 @@ sap.ui.define(
             }.bind(this)
           );
           oMainModel.setProperty("/busyUpload", true);
-          var formData = new FormData();
+          var formData = new FormData(),
+            currTime = Date.now().toString();
           if (sMode === "PUT") {
             formData.append("filename", sFileName);
             formData.append("utime", prevUTime);
           } else {
-            formData.append("utime", Date.now().toString());
+            formData.append("utime", currTime);
           }
           // formData.append("fname", "Shivam");
           // formData.append("lname", "Shrivastav");
           // formData.append("utime", Date.now().toString());
           formData.append("fileToUpload", oFile, oFile.name);
           // formData.append("user_id", "s.s@gmail.com");
-          formData.append("ctime", Date.now().toString());
+          formData.append("ctime", currTime);
           formData.append(
             "description",
             oMainModel.getProperty("/description")
@@ -116,7 +118,9 @@ sap.ui.define(
           $.ajax(params).done(function (response, success) {
             if (success === "success") {
               var aItems = oMainModel.getProperty("/items");
-              aItems.splice(currIndx, 1);
+              if (sMode === "PUT") {
+                aItems.splice(currIndx, 1);
+              }
               aItems.unshift(JSON.parse(response));
               oMainModel.setProperty("/item", aItems);
               oMainModel.setProperty("/description", "");
@@ -198,7 +202,7 @@ sap.ui.define(
       },
       onLogoutPress: function () {
         window.sessionStorage.accessToken = "";
-        this._oRouter.navTo("", {}, true);
+        window.location.replace("");
       },
       formatFilename: function (fileName) {
         var sFileName = fileName;

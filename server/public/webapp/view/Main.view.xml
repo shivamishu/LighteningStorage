@@ -4,7 +4,7 @@
 		<content>
 			<VBox>
 				<tnt:ToolHeader>
-					<Label text="ADMIN" visible="{= ${mainModel>/user_mode} === 'ADMIN' ? true: false}"/>
+					<Label text="ADMIN MODE" visible="{= ${mainModel>/mode} === 'ADMIN' ? true: false}"/>
 					<ToolbarSpacer/>
 					<Label text="{mainModel>/name} ({mainModel>/user_id})" class="sapUiTinyMarginBegin"/>
 					<Avatar src="" displaySize="XS" press="onAvatarPressed"/>
