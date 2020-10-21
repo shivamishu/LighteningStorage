@@ -11,6 +11,7 @@ sap.ui.define(
     return Controller.extend("aws.LightningStorage.controller.Main", {
       onInit: function () {
         this._oView = this.getView();
+        this._oRouter = this.getOwnerComponent().getRouter();
         var oMainModel = new JSONModel({
           busy: true,
           busyUpload: false,
@@ -18,10 +19,6 @@ sap.ui.define(
           items: [],
         });
         this._oView.setModel(oMainModel, "mainModel");
-        this._oRouter = this.getOwnerComponent().getRouter();
-        this._oRouter
-          .getRoute("welcome")
-          .attachPatternMatched(this._onRouteMatched, this);
         // var sUserId = "s.s@gmail.com";
         // url: "/api/read_files?user_id=" + sUserId,
         if (window.sessionStorage.accessToken) {
@@ -53,12 +50,11 @@ sap.ui.define(
             }.bind(this),
           });
         } else {
-          // var sUrl =
-          //   "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000";
-          // sap.m.URLHelper.redirect(sUrl, false);
+          var sUrl =
+            "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000";
+          sap.m.URLHelper.redirect(sUrl, false);
         }
       },
-      _onRouteMatched: function () {},
       handleUploadPress: function (oEvent) {
         var oFileUploader = this._oView.byId("fileUploader"),
           oFile = oFileUploader.oFileUpload.files[0],
@@ -202,7 +198,7 @@ sap.ui.define(
       },
       onLogoutPress: function () {
         window.sessionStorage.accessToken = "";
-        HashChanger.getInstance().replaceHash("");
+        this._oRouter.navTo("", {}, true);
       },
       formatFilename: function (fileName) {
         var sFileName = fileName;

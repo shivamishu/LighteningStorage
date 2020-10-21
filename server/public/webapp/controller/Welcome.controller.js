@@ -10,19 +10,15 @@ sap.ui.define(
     return Controller.extend("aws.LightningStorage.controller.Welcome", {
       onInit: function () {
         this._oRouter = this.getOwnerComponent().getRouter();
-        this._oRouter
-          .getRoute("RouteMain")
-          .attachPatternMatched(this._onRouteMatched, this);
-      },
-      _onRouteMatched: function () {
         var access_token = new URLSearchParams(window.location.hash).get(
           "access_token"
         );
         if (access_token || window.sessionStorage.accessToken) {
-          window.sessionStorage.accessToken = access_token;
+          window.sessionStorage.accessToken = access_token
+            ? access_token
+            : window.sessionStorage.accessToken;
           this._oRouter.navTo("welcome", {}, true);
         } else {
-          // HashChanger.getInstance().replaceHash("");
           // window.sessionStorage.accessToken = "";
         }
       },

@@ -58,14 +58,16 @@ function _performDBOperation(
 ) {
   if (err) {
     // con.end();
-    // console.error("Database connection failed: " + err.stack);
-    res.status(400).send(err);
-    return;
+    console.error("Database connection failed: " + err.stack);
+    con.end();
+    // res.status(400).send(err);
+    // return;
   }
   // console.log("Connected to database.");
   con.query(sql_query, function (err, result, fields) {
     if (err) {
       // con.end();
+      console.error(err.stack);
       res.send(err);
     } else {
       let msg = "";

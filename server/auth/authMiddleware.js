@@ -30,7 +30,7 @@ exports.Validate = function (req, res, next) {
         res.sendStatus(401);
       } // an error occurred
       else {
-        console.log(data);
+        // console.log(data);
         res.locals.user = data; //could be used in api_routes
         next();
       }

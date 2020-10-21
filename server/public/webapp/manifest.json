@@ -79,8 +79,7 @@
 				"async": true,
 				"viewPath": "aws.LightningStorage.view",
 				"controlAggregation": "pages",
-				"controlId": "app",
-				"clearControlAggregation": false
+				"controlId": "app"
 			},
 			"routes": [{
 				"name": "RouteMain",
@@ -95,14 +94,12 @@
 				"TargetMain": {
 					"viewType": "XML",
 					"transition": "slide",
-					"clearControlAggregation": false,
 					"viewId": "Welcome",
 					"viewName": "Welcome"
 				},
 				"TargetWelcome": {
 					"viewType": "XML",
 					"transition": "slide",
-					"clearControlAggregation": false,
 					"viewId": "Main",
 					"viewName": "Main"
 				}
