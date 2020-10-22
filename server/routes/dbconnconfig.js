@@ -1,3 +1,4 @@
+"use strict";
 var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: process.env.AWS_RDS_ENDPOINT,

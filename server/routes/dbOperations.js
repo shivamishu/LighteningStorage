@@ -1,3 +1,4 @@
+"use strict";
 var AWS = require("aws-sdk");
 let awsConfig = {
   region: process.env.AWS_REGION,

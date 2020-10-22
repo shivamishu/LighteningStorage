@@ -1,3 +1,4 @@
+"use strict";
 var request = require("request");
 var AWS = require("aws-sdk");
 const CognitoExpress = require("cognito-express");
