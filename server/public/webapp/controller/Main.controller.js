@@ -7,7 +7,8 @@ sap.ui.define(
   ],
   function (Controller, JSONModel, MessageToast, Fragment) {
     "use strict";
-
+    var sUrl =
+      "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://www.mylightningstorage.com/";
     return Controller.extend("aws.LightningStorage.controller.Main", {
       onInit: function () {
         this._oView = this.getView();
@@ -45,14 +46,14 @@ sap.ui.define(
               MessageToast.show("Error occured. Sign in again");
               this._oView.getModel("mainModel").setProperty("/busy", false);
               console.log("Error fetching files");
-              var sUrl =
-                "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000";
+              // var sUrl =
+              //   "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://www.mylightningstorage.com/";
               sap.m.URLHelper.redirect(sUrl, false);
             }.bind(this),
           });
         } else {
-          var sUrl =
-            "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000";
+          // var sUrl =
+          //   "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://www.mylightningstorage.com/";
           sap.m.URLHelper.redirect(sUrl, false);
         }
       },
