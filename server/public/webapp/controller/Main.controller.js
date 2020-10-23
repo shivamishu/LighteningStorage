@@ -32,6 +32,9 @@ sap.ui.define(
             url: "/api/read_files",
             dataType: "json",
             success: function (data) {
+              data.items.sort((a, b) =>
+                a.ctime < b.ctime ? 1 : b.ctime < a.ctime ? -1 : 0
+              );
               this._oView
                 .getModel("mainModel")
                 .setProperty("/items", data.items);
