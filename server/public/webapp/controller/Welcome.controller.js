@@ -13,6 +13,9 @@ sap.ui.define(
         var access_token = new URLSearchParams(window.location.hash).get(
           "access_token"
         );
+        access_token = access_token
+          ? access_token
+          : new URLSearchParams(window.location.hash).get("#access_token");
         if (access_token || window.sessionStorage.accessToken) {
           window.sessionStorage.accessToken = access_token
             ? access_token
