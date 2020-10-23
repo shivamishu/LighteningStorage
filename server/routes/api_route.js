@@ -45,12 +45,11 @@ exports.upload_file = async function (req, res) {
     return res.status(400).send("No files were uploaded.");
   }
 
-  const fileName =
+  let fileName =
     req.body.utime.split("").reverse().join("") + "-" + inputFile.name; //new unique file name
   const fileContent = fs.readFileSync(inputFile.tempFilePath);
   const mimeType = inputFile.mimetype;
   const fileSize = inputFile.size;
-  const url = `${process.env.AWS_CLOUD_FRONT}${fileName}`;
 
   const params = {
     Bucket: process.env.AWS_S3_BUCKET,
@@ -63,6 +62,9 @@ exports.upload_file = async function (req, res) {
     if (err) {
       res.status(400).send(err);
     }
+    let a = data.Location.split("/");
+    let urlFileName = a[a.length - 1];
+    const url = `${process.env.AWS_CLOUD_FRONT}${urlFileName}`;
     const user_input = {
       user_id: user_id,
       filename: fileName,
@@ -113,7 +115,6 @@ exports.update_file = async function (req, res) {
   const fileContent = fs.readFileSync(inputFile.tempFilePath);
   const fileSize = inputFile.size; //updated size
   const mimeType = inputFile.mimetype;
-  const url = `${process.env.AWS_CLOUD_FRONT}${fileName}`;
   const params = {
     Bucket: process.env.AWS_S3_BUCKET,
     Key: fileName,
@@ -125,6 +126,9 @@ exports.update_file = async function (req, res) {
     if (err) {
       res.status(400).send(err);
     }
+    let a = data.Location.split("/");
+    let urlFileName = a[a.length - 1];
+    const url = `${process.env.AWS_CLOUD_FRONT}${urlFileName}`;
     const user_input = {
       user_id: user_id,
       filename: fileName,

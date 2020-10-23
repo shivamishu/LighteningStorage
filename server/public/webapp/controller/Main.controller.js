@@ -7,6 +7,8 @@ sap.ui.define(
   ],
   function (Controller, JSONModel, MessageToast, Fragment) {
     "use strict";
+    var sLogOutUrl =
+      "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/logout?client_id=4khht0k2e1r2k5v3ei7hsp8smd&logout_uri=https://www.mylightningstorage.com/";
     var sUrl =
       "https://mylightningstorage.auth.ap-south-1.amazoncognito.com/login?client_id=4khht0k2e1r2k5v3ei7hsp8smd&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://www.mylightningstorage.com/";
     return Controller.extend("aws.LightningStorage.controller.Main", {
@@ -206,7 +208,8 @@ sap.ui.define(
       },
       onLogoutPress: function () {
         window.sessionStorage.accessToken = "";
-        window.location.replace("");
+        // window.location.replace("");
+        sap.m.URLHelper.redirect(sLogOutUrl, false);
       },
       formatFilename: function (fileName) {
         var sFileName = fileName;
