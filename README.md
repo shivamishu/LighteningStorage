@@ -16,13 +16,13 @@ Admin Mode  to manage all the files of the users in the user pool.
 Custom sign in/sign up using TwoFactor Authentication.
 Social Media Integration like Facebook for login purposes.  
 
-# APIs Build
+# APIs
 GET: https://www.mylightningstorage.com/api/read_files  
 POST: https://www.mylightningstorage.com/api/upload_file  
 UPDATE: https://www.mylightningstorage.com/api/update_file  
 DELETE: https://www.mylightningstorage.com/api/delete_file  
 
-#Demo
+# Demo
 Video: Lightning Storage Demo  
 Application URL: https://www.mylightningstorage.com  
 
