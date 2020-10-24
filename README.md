@@ -1,4 +1,4 @@
-#LightningStorage - File storage application on Cloud
+# LightningStorage - File storage application on Cloud
 https://www.mylightningstorage.com    
 
 This app allows you to manage your files hosted on AWS.  
@@ -7,7 +7,7 @@ It uses various AWS resources like AWS S3, DynamoDB, CloudFront, Cognito, EC2, E
 Technical Stack: NodeJS, AJAX, JavaScript, HTML, CSS, OpenSAPUI5 and AWS Resources.  
 
 
-#Features
+# Features
 List of all files, Download, Upload, Update and Delete Files  
 User’s Full name, email id, File upload date, last change date, file description, file size and download URL
 Versioning
@@ -16,7 +16,7 @@ Admin Mode  to manage all the files of the users in the user pool.
 Custom sign in/sign up using TwoFactor Authentication.
 Social Media Integration like Facebook for login purposes.  
 
-#APIs Build
+# APIs Build
 GET: https://www.mylightningstorage.com/api/read_files  
 POST: https://www.mylightningstorage.com/api/upload_file  
 UPDATE: https://www.mylightningstorage.com/api/update_file  
@@ -26,13 +26,13 @@ DELETE: https://www.mylightningstorage.com/api/delete_file
 Video: Lightning Storage Demo  
 Application URL: https://www.mylightningstorage.com  
 
-#AWS Architecture Diagram:  
+# AWS Architecture Diagram:  
 
 
 
 
 
-#AWS Resources Setup:  
+# AWS Resources Setup:  
        
 •	GitHub: Clone the project from GitHub Repository to EC2.  https://github.com/shivamishu/LighteningStorage   
 •	EC2: Create the EC2 instance and install NodeJS. Create snapshot, AMI of EC2 instance with all the required configurations. This AMI will be used by EC2 instances when it gets spawned by Auto scaling policies.  
