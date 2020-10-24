@@ -64,7 +64,7 @@ exports.upload_file = async function (req, res) {
     }
     let a = data.Location.split("/");
     let urlFileName = a[a.length - 1];
-    const url = `${process.env.AWS_CLOUD_FRONT}${urlFileName}?versionid=${data.VersionId}`;
+    const url = `${process.env.AWS_CLOUD_FRONT}${urlFileName}`;
     const user_input = {
       user_id: user_id,
       filename: fileName,
@@ -128,7 +128,7 @@ exports.update_file = async function (req, res) {
     }
     let a = data.Location.split("/");
     let urlFileName = a[a.length - 1];
-    const url = `${process.env.AWS_CLOUD_FRONT}${urlFileName}?versionid=${data.VersionId}`;
+    const url = `${process.env.AWS_CLOUD_FRONT}${urlFileName}`;
     const user_input = {
       user_id: user_id,
       filename: fileName,
