@@ -79,11 +79,13 @@ module.exports.updateFile = async function (req, res, user_input) {
   var params = {
     TableName: "userfiles",
     Key: { user_id: user_input.user_id, filename: user_input.filename },
-    UpdateExpression: "set ctime = :ct, description = :desc, size =  :sz",
+    UpdateExpression:
+      "set ctime = :ct, description = :desc, size =  :sz, file_url = :ur",
     ExpressionAttributeValues: {
       ":ct": user_input.ctime,
       ":desc": user_input.description,
       ":sz": user_input.size,
+      ":ur": user_input.file_url,
     },
     ReturnValues: "UPDATED_NEW",
   };
