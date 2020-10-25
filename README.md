@@ -45,7 +45,12 @@ Admin Mode
 
 ![Untitled Diagram](https://user-images.githubusercontent.com/24988178/97101260-e451d700-16c1-11eb-90b6-e1cb49d9f984.png)
 
-
+# Local Setup
+Clone the repository and change the directory to server.  
+You can create an .env file with all the relevant environment variables and use your own AWS credentials to run the application.  
+The application's packages could be installed by running npm i --s  
+Run the server: node server.js  
+Application is available on the localhost port 3000 or 443.  
 
 # AWS Resources Setup:  
        
