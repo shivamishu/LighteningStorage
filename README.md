@@ -33,12 +33,13 @@ Welcome Page
 ![aws p1 0](https://user-images.githubusercontent.com/24988178/97101398-216a9900-16c3-11eb-8139-370a9c344eb3.png)
 
 Cognito Sign In/Sign Up  
-
+![AWS P1 1](https://user-images.githubusercontent.com/24988178/97101399-22032f80-16c3-11eb-88ea-ffc21ad7c4df.png)
 
 User Mode  
+![AWS P1 - 2](https://user-images.githubusercontent.com/24988178/97101394-1ca5e500-16c3-11eb-817d-d9ef78d6202b.png)
 
 Admin Mode  
-
+![aws p1 admin](https://user-images.githubusercontent.com/24988178/97101400-229bc600-16c3-11eb-97af-1f111140b38c.png)
 
 # AWS Architecture Diagram:  
 
