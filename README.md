@@ -1,4 +1,5 @@
-# LightningStorage - File storage application on Cloud
+# LightningStorage 
+- File storage application on Cloud
 https://www.mylightningstorage.com    
 
 This app allows you to manage your files hosted on AWS.  
