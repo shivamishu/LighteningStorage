@@ -30,7 +30,7 @@ Application URL: https://www.mylightningstorage.com
 # Screenshots
 
 Welcome Page  
-
+![aws p1 0](https://user-images.githubusercontent.com/24988178/97101398-216a9900-16c3-11eb-8139-370a9c344eb3.png)
 
 Cognito Sign In/Sign Up  
 
