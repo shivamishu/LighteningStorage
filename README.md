@@ -24,7 +24,8 @@ UPDATE: https://www.mylightningstorage.com/api/update_file
 DELETE: https://www.mylightningstorage.com/api/delete_file  
 
 # Demo
-Video: Lightning Storage Demo  
+Demo Video: [Lightning Storage Demo](https://drive.google.com/file/d/1vDODC7B34bSNxCsj3H7KN38I5CwkfXnK/view)  
+P.S: If the above google drive video takes a longer time to load, then please download the video to watch it offline.  
 Application URL: https://www.mylightningstorage.com  
 
 # Screenshots
