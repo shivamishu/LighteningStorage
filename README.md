@@ -26,9 +26,22 @@ DELETE: https://www.mylightningstorage.com/api/delete_file
 Video: Lightning Storage Demo  
 Application URL: https://www.mylightningstorage.com  
 
+# Screenshots
+
+Welcome Page  
+
+
+Cognito Sign In/Sign Up  
+
+
+User Mode  
+
+Admin Mode  
+
+
 # AWS Architecture Diagram:  
 
-
+![Untitled Diagram](https://user-images.githubusercontent.com/24988178/97101260-e451d700-16c1-11eb-90b6-e1cb49d9f984.png)
 
 
 
